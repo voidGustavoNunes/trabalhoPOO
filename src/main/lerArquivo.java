@@ -10,9 +10,7 @@ public class lerArquivo {
 
     public static LinkedList lerArquivo1() {
         String erro = "Não encontrado";
-        
-        
-        
+
         FileInputStream fil = null;
         try {
             fil = new FileInputStream("patologicos.txt");

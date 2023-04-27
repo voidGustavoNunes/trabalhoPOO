@@ -2,16 +2,15 @@ package classeEspecifica;
 
 import classeGeral.Bacteria;
 
-public class Escherichia extends Bacteria {
+public class Estreptococos extends Bacteria {
 
-    final int CODIGO = 6;
+    final int CODIGO = 2;
     final int ENERGIA_VITAL = 100;
     String identificacao;
-    final String CLASSE_ESPECÍFICA = "Escherichia";
+    final String CLASSE_ESPECÍFICA = "Estreptococos";
 
-    public Escherichia(String identificacao) {
+    public Estreptococos(String identificacao) {
         this.identificacao = identificacao;
     }
-    
     
 }

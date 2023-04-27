@@ -2,20 +2,15 @@
 package classeEspecifica;
 
 import classeGeral.Virus;
-
+import main.*;
 
 public class Covid19 extends Virus{
-    final int energia_Vital = 100;
     
+    final int CODIGO = 4;
+    String identificacao;
     String classe_Geral;
-    String classe_Especifica;
+    final String CLASSE_GERAL = "Covid-19";
 
     public Covid19(String identificacao) {
-        lerArquivo();
-        
-        super(identificacao);
-        this.classe_Geral = getClass().getSuperclass().getSimpleName(); // quero que a classe geral pegue automaticamente o nome virus, o getsimplename
-                                                                        // e usado para obter o nome da classe extendida Virus
-        this.classe_Especifica = getClass().getSimpleName();
-    }
+
 }

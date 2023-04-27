@@ -1,13 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package classeEspecifica;
 
-/**
- *
- * @author Gustavo
- */
-public class Giardia {
+import classeGeral.Protozoario;
+
+
+public class Giardia extends Protozoario{
+    final int CODIGO = 3;
+    final int ENERGIA_VITAL = 100;
+    String identificacao;
+    final String CLASSE_ESPECÍFICA = "Giardia";
+
+    public Giardia(String identificacao) {
+        this.identificacao = identificacao;
+    }
+    
+    
     
 }
