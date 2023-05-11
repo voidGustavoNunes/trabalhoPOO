@@ -44,5 +44,21 @@ public class Paciente {
         return qntde_K;
     }
 
+    public void setQntde_Leucocitos(int qntde_Leucocitos) {
+        this.qntde_Leucocitos = qntde_Leucocitos;
+    }
+
+    public void setQntde_Hemacias(int qntde_Hemacias) {
+        this.qntde_Hemacias = qntde_Hemacias;
+    }
+
+    public void setQntde_Celulas(int qntde_Celulas) {
+        this.qntde_Celulas = qntde_Celulas;
+    }
+
+    public void setQntde_K(int qntde_K) {
+        this.qntde_K = qntde_K;
+    }
+
 
 }

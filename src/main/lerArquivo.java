@@ -47,7 +47,7 @@ public class lerArquivo {
             String nome = texto[0];
             String id = texto[1];
             if(elementoAtual.equals(n)){
-                return elementoAtual = (String) arq.get(i + 1);
+                return elementoAtual;
             
             }    
         }
@@ -93,4 +93,9 @@ public class lerArquivo {
 //        String a = retornaIdentificacao(b);
 //        System.out.println(a); // imprime a lista completa
 //    }
+    
+
 }
+
+
+    

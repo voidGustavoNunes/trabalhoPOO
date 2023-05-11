@@ -6,11 +6,21 @@ import main.*;
 
 public class Covid19 extends Virus{
     
-    final int CODIGO = 4;
+    String codigo = "4";
     String identificacao;
-    String classe_Geral;
     final String CLASSE_GERAL = "Covid-19";
+    
+    
+    
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public String getCLASSE_GERAL() {
+        return CLASSE_GERAL;
+    }
 
     public Covid19(String identificacao) {
-
+        this.identificacao = identificacao;
+    }
 }

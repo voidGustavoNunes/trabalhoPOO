@@ -4,14 +4,31 @@ import classeGeral.Bacteria;
 
 public class Escherichia extends Bacteria {
 
-    final int CODIGO = 6;
-    final int ENERGIA_VITAL = 100;
+    private final String CODIGO = "6";
+    int energia_Vital = 64;
     String identificacao;
-    final String CLASSE_ESPECÍFICA = "Escherichia";
+    private final String CLASSE_ESPECÍFICA = "Escherichia";
 
     public Escherichia(String identificacao) {
         this.identificacao = identificacao;
     }
+
+    public String getCODIGO() {
+        return CODIGO;
+    }
+
+    public int getenergia_Vital() {
+        return energia_Vital;
+    }
+
+    public void setEnergia_Vital(int energia_Vital) {
+        this.energia_Vital = energia_Vital;
+    }
+
+    public String getCLASSE_ESPECÍFICA() {
+        return CLASSE_ESPECÍFICA;
+    }
+    
     
     
 }
