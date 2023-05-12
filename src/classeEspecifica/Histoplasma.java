@@ -5,8 +5,8 @@ import classeGeral.Fungo;
 
 
 public class Histoplasma extends Fungo{  
-    String identificacao;
-    final int CODIGO = 5;
+    private String identificacao;
+    final String CODIGO = "5";
     final int ENERGIA_VITAL = 100;
     final String CLASSE_ESPECÍFICA = "Histoplasma";
     
@@ -14,7 +14,7 @@ public class Histoplasma extends Fungo{
         this.identificacao = identificacao;
     }
 
-    public int getCODIGO() {
+    public String getCODIGO() {
         return CODIGO;
     }
 
@@ -25,5 +25,19 @@ public class Histoplasma extends Fungo{
     public String getCLASSE_ESPECÍFICA() {
         return CLASSE_ESPECÍFICA;
     }
+
+    public void setIdentificacao(String identificacao) {
+        this.identificacao = identificacao;
+    }
+
+    public String getIdentificacao() {
+        return identificacao;
+    }
+
+    public String getCLASSE_GERAL() {
+        return CLASSE_GERAL;
+    }
+    
+    
     
 }

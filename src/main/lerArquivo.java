@@ -1,12 +1,17 @@
 package main;
 
+import classeEspecifica.Histoplasma;
+import classeGeral.Bacteria;
+import classeGeral.Fungo;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 public class lerArquivo {
+    //private Histoplasma histoplasma;
 
     public static LinkedList lerArquivo1() {
         String erro = "Não encontrado";
@@ -47,7 +52,7 @@ public class lerArquivo {
             String nome = texto[0];
             String id = texto[1];
             if(elementoAtual.equals(n)){
-                return elementoAtual;
+                return texto[0];
             
             }    
         }
@@ -94,8 +99,32 @@ public class lerArquivo {
 //        System.out.println(a); // imprime a lista completa
 //    }
     
+    
+    
+    public static void verificar_Fila_Histoplasma(){
+        LinkedList<Object> lista = lerArquivo1(); //e um object pq ele e o pai de todos, se fosse string dava erro nas instancias
+                                                  // de fungo e bacteria
+        
+        for (int i = 0; i < lista.size() - 1; i++) {
+            if ((lista.get(i) instanceof Fungo && lista.get(i + 1) instanceof Bacteria) || //verifica se o anterior e fungo
+            (lista.get(i) instanceof Bacteria && lista.get(i + 1) instanceof Fungo)){ //verifica se o proximo e fungo na lista
+                
+                if (lista.get(i + 1).getClass().getSuperclass() == Bacteria.class) {
+                    lista.remove(i + 1);
+                }
+            }
+        }
+    }
+    
+    public static void removerDaLista(String identificacao){
+        LinkedList<String> lista = lerArquivo1();
+        
+        for(int i = 0; i < lista.size() - 1; i++){
+            if(lista.get(i).equals(identificacao)){
+                lista.remove(i);
+            }
+        }
+
+    }
 
 }
-
-
-    
