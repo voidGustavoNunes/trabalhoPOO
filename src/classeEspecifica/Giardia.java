@@ -8,6 +8,10 @@ public class Giardia extends Protozoario{
     int codigo = 3;
     int energia_Vital = 100;
     String identificacao;
+
+    public String getIdentificacao() {
+        return identificacao;
+    }
     String classe_Especifica = "Giardia";
 
     public Giardia(String identificacao) {

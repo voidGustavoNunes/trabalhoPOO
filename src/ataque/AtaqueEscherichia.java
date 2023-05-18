@@ -31,7 +31,7 @@ public class AtaqueEscherichia extends Escherichia {
 
         String codigo = getCODIGO();
 
-        Escherichia escherichia = new Escherichia(gerar.gerarIdentificacao(codigo));
+        Escherichia escherichia = new Escherichia(gerar.gerarIdentificacao(codigo)) ;
         int energiaVital = escherichia.getenergia_Vital();
 
         energiaVital = energiaVital / 2;
@@ -46,7 +46,7 @@ public class AtaqueEscherichia extends Escherichia {
     public void Ataque() {
         AtaquePaciente ataque = new AtaquePaciente();
 
-        int celulasT = paciente.getQntde_Celulas();
+        int celulasT = paciente.getQntde_CelulasT();
         int hemacias = paciente.getQntde_Hemacias();
         int leucocitos = paciente.getQntde_Leucocitos();
         int celulasK = paciente.getQntde_K();
@@ -55,7 +55,7 @@ public class AtaqueEscherichia extends Escherichia {
         
         
         while (energiaVital != 1) {
-            paciente.setQntde_Celulas(celulasT - 1);
+            paciente.setQntde_CelulasT(celulasT - 1);
             paciente.setQntde_Leucocitos(leucocitos - 1);
             paciente.setQntde_Hemacias(hemacias - 1);
             paciente.setQntde_K(celulasK - 1);

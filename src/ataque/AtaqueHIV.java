@@ -1,22 +1,33 @@
-
 package ataque;
 
+import classeEspecifica.HIV;
 import main.Paciente;
 
 public class AtaqueHIV {
+
+    private Paciente paciente;
+    private HIV hiv;
     
-    public static void Ataque(){
-        Paciente paciente = new Paciente();
+    public void Ataque() {
         
-        int leucocitos = paciente.getQntde_Leucocitos();
-        int celulasK = paciente.getQntde_K();
-        int celulasT = paciente.getQntde_Celulas();
-        
-        paciente.setQntde_K(celulasK - 5);
-        paciente.setQntde_Leucocitos(leucocitos - 10);
-        paciente.setQntde_Celulas(celulasT - 3);
-        
-        
-        
-    }    
+        AtaquePaciente ataque = new AtaquePaciente();
+
+        boolean p = paciente.verificaPaciente();
+
+        while (p == false) { //enquanto o paciente nao morre
+            int leucocitos = paciente.getQntde_Leucocitos();
+            int celulasK = paciente.getQntde_K();
+            int celulasT = paciente.getQntde_CelulasT();
+
+            paciente.setQntde_K(celulasK - 5);
+            paciente.setQntde_Leucocitos(leucocitos - 10);
+            paciente.setQntde_CelulasT(celulasT - 3);
+            
+            double contrataque = ataque.ContraAtaque();
+            hiv.setEnergia_Vital((int) contrataque);
+            
+
+        }
+
+    }
 }

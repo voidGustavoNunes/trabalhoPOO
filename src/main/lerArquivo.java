@@ -32,7 +32,6 @@ public class lerArquivo {
         }
 
         scan.close();
-        
 
         return ls1;
     }
@@ -44,20 +43,19 @@ public class lerArquivo {
         LinkedList arq = lerArquivo1(); //crio uma variavel para ler o metodo lerArquivo1
 //        arq = arq.s
         //Iterator it = arq.iterator();
-        
-        
-        for(int i = 0; i < arq.size(); i++){
+
+        for (int i = 0; i < arq.size(); i++) {
             String elementoAtual = (String) arq.get(i);
             String texto[] = elementoAtual.split(" ");
             String nome = texto[0];
             String id = texto[1];
-            if(elementoAtual.equals(n)){
+            if (elementoAtual.equals(n)) {
                 return texto[0];
-            
-            }    
+
+            }
         }
         return erro;
-        
+
 //        while (it.hasNext()) { //enquanto houver valores dentro da lista
 //            String curr = (String) it.next(); //atribuo
 //            if (curr.equals(n)) {
@@ -67,61 +65,71 @@ public class lerArquivo {
 //        }
 //        return erro;
     }
-    
-    
-    public static boolean lerEstreptococos(){ //ler se há um outro estreptococos na fila
-        
+
+    public static boolean lerEstreptococos() { //ler se há um outro estreptococos na fila
+
         LinkedList arq = lerArquivo1();
-        
-        for(int i = 0; i < arq.size(); i++){
+
+        for (int i = 0; i < arq.size(); i++) {
             String elementoAtual = (String) arq.get(i);     // 1 HV1
-            String proximoElemento = (String) arq.get(i+1);     //2 EST
-            
+            String proximoElemento = (String) arq.get(i + 1);     //2 EST
+
             String texto[] = elementoAtual.split(" ");
             String textoProximo[] = elementoAtual.split(" ");
-            
+
             String id = texto[0];
             String nome = texto[1];
-            
+
             String idProximo = textoProximo[0];
-            
-            if(id == idProximo){
+
+            if (id == idProximo) {
                 return true;
             }
         }
         return false;
     }
-        
 
 //    public static void main(String[] args) {
 //        String b = "1 HIV1XPTO";
 //        String a = retornaIdentificacao(b);
 //        System.out.println(a); // imprime a lista completa
 //    }
-    
-    
-    
-    public static void verificar_Fila_Histoplasma(){
+    public static void verificar_Fila_Histoplasma() {
         LinkedList<Object> lista = lerArquivo1(); //e um object pq ele e o pai de todos, se fosse string dava erro nas instancias
-                                                  // de fungo e bacteria
-        
+        // de fungo e bacteria
+
         for (int i = 0; i < lista.size() - 1; i++) {
-            if ((lista.get(i) instanceof Fungo && lista.get(i + 1) instanceof Bacteria) || //verifica se o anterior e fungo
-            (lista.get(i) instanceof Bacteria && lista.get(i + 1) instanceof Fungo)){ //verifica se o proximo e fungo na lista
-                
+            if ((lista.get(i) instanceof Fungo && lista.get(i + 1) instanceof Bacteria)
+                    || //verifica se o anterior e fungo
+                    (lista.get(i) instanceof Bacteria && lista.get(i + 1) instanceof Fungo)) { //verifica se o proximo e fungo na lista
+
                 if (lista.get(i + 1).getClass().getSuperclass() == Bacteria.class) {
                     lista.remove(i + 1);
                 }
             }
         }
     }
-    
-    public static void removerDaLista(String identificacao){
+
+    public static void removerDaLista(String identificacao) {
+        LinkedList<String> lista = lerArquivo1();
+
+        for (int i = 0; i < lista.size() - 1; i++) {
+            if (lista.get(i).equals(identificacao)) {
+                lista.remove(i);
+            }
+        }
+
+    }
+
+    public static void ultimoLista(String identificacao) {
         LinkedList<String> lista = lerArquivo1();
         
-        for(int i = 0; i < lista.size() - 1; i++){
-            if(lista.get(i).equals(identificacao)){
-                lista.remove(i);
+        for (int i = 0; i < lista.size(); i++) { //le a lista toda
+            String atual = lista.get(i); //armazena o index atual
+            if (atual.contains(identificacao)) {  //se achar a identificacao na lista
+                lista.remove(i); //remove ela
+                lista.add(atual); //joga pro final
+                break;
             }
         }
 

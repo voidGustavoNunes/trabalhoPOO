@@ -5,7 +5,7 @@ import classeGeral.Virus;
 
 public class HIV extends Virus{
     final int CODIGO = 1;
-    final int ENERGIA_VITAL = 100;
+    int energia_Vital = 100;
     String identificacao;
     final String CLASSE_ESPECÍFICA = "HIV";
 
@@ -17,12 +17,16 @@ public class HIV extends Virus{
         return CODIGO;
     }
 
-    public int getENERGIA_VITAL() {
-        return ENERGIA_VITAL;
+    public int getenergia_Vital() {
+        return energia_Vital;
     }
 
     public String getCLASSE_ESPECÍFICA() {
         return CLASSE_ESPECÍFICA;
+    }
+
+    public void setEnergia_Vital(int energia_Vital) {
+        this.energia_Vital = energia_Vital;
     }
     
     
