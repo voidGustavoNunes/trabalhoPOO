@@ -9,9 +9,11 @@ public class Histoplasma extends Fungo{
     final String CODIGO = "5";
     int energia_Vital = 100;
     final String CLASSE_ESPECÍFICA = "Histoplasma";
+    private static int qt = 0;
     
     public Histoplasma(String identificacao) {
         this.identificacao = identificacao;
+        Histoplasma.qt++;
     }
 
     public String getCODIGO() {

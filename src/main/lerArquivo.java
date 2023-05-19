@@ -1,5 +1,6 @@
 package main;
 
+import classeEspecifica.Estreptococos;
 import classeEspecifica.Histoplasma;
 import classeGeral.Bacteria;
 import classeGeral.Fungo;
@@ -68,11 +69,11 @@ public class lerArquivo {
 
     public static boolean lerEstreptococos() { //ler se há um outro estreptococos na fila
 
-        LinkedList arq = lerArquivo1();
+        LinkedList lista = lerArquivo1();
 
-        for (int i = 0; i < arq.size(); i++) {
-            String elementoAtual = (String) arq.get(i);     // 1 HV1
-            String proximoElemento = (String) arq.get(i + 1);     //2 EST
+        for (int i = 0; i < lista.size(); i++) {
+            String elementoAtual = (String) lista.get(i);     // 1 HV1
+            String proximoElemento = (String) lista.get(i + 1);     //2 EST
 
             String texto[] = elementoAtual.split(" ");
             String textoProximo[] = elementoAtual.split(" ");
@@ -82,18 +83,38 @@ public class lerArquivo {
 
             String idProximo = textoProximo[0];
 
-            if (id == idProximo) {
+            if (id == idProximo && id == "2") {
                 return true;
             }
         }
         return false;
     }
 
-//    public static void main(String[] args) {
-//        String b = "1 HIV1XPTO";
-//        String a = retornaIdentificacao(b);
-//        System.out.println(a); // imprime a lista completa
-//    }
+    public static String retornaIdEstrep() { //Estreptococos
+        LinkedList lista = lerArquivo1();
+
+        for (int i = 0; i < lista.size(); i++) {
+            String elementoAtual = (String) lista.get(i);
+            String proximoElemento = (String) lista.get(i + 1);
+
+            String texto[] = elementoAtual.split(" ");
+            String textoProximo[] = elementoAtual.split(" ");
+
+            String id = texto[0];
+            String nome = texto[1];
+
+            String idProximo = textoProximo[0];
+
+            if (id == idProximo && id == "2") {
+                String identificacao = id+" "+texto[1]+textoProximo[1];
+                
+                return identificacao;
+            }
+        }
+        return null;
+        
+    }
+
     public static void verificar_Fila_Histoplasma() {
         LinkedList<Object> lista = lerArquivo1(); //e um object pq ele e o pai de todos, se fosse string dava erro nas instancias
         // de fungo e bacteria
@@ -123,7 +144,7 @@ public class lerArquivo {
 
     public static void ultimoLista(String identificacao) {
         LinkedList<String> lista = lerArquivo1();
-        
+
         for (int i = 0; i < lista.size(); i++) { //le a lista toda
             String atual = lista.get(i); //armazena o index atual
             if (atual.contains(identificacao)) {  //se achar a identificacao na lista

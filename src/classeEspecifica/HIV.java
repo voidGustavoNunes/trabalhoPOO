@@ -8,9 +8,11 @@ public class HIV extends Virus{
     int energia_Vital = 100;
     String identificacao;
     final String CLASSE_ESPECÍFICA = "HIV";
+    private static int qt = 0;
 
     public HIV(String identificacao) {
         this.identificacao = identificacao;
+        HIV.qt++;
     }
 
     public int getCODIGO() {

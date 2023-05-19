@@ -8,13 +8,19 @@ public class Escherichia extends Bacteria {
     int energia_Vital = 64;
     String identificacao;
     private final String CLASSE_ESPECÍFICA = "Escherichia";
+    
 
     public Escherichia(String identificacao) {
         this.identificacao = identificacao;
+        Escherichia.qt++;
     }
 
     public String getCODIGO() {
         return CODIGO;
+    }
+
+    public static int getQt() {
+        return qt;
     }
 
     public int getenergia_Vital() {

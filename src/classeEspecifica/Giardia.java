@@ -9,6 +9,7 @@ public class Giardia extends Protozoario{
     int energia_Vital = 100;
     String identificacao;
 
+
     public String getIdentificacao() {
         return identificacao;
     }
@@ -16,6 +17,7 @@ public class Giardia extends Protozoario{
 
     public Giardia(String identificacao) {
         this.identificacao = identificacao;
+        
     }
 
     public int getCodigo() {
@@ -33,7 +35,6 @@ public class Giardia extends Protozoario{
     public void setEnergia_Vital(int energia_Vital) {
         this.energia_Vital = energia_Vital;
     }
-    
     
     
 }

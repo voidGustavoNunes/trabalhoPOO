@@ -9,9 +9,8 @@ public class Covid19 extends Virus{
     String codigo = "4";
     String identificacao;
     final String CLASSE_GERAL = "Covid-19";
-    
-    
-    
+
+
     public String getCodigo() {
         return codigo;
     }
@@ -22,5 +21,11 @@ public class Covid19 extends Virus{
 
     public Covid19(String identificacao) {
         this.identificacao = identificacao;
+        Covid19.qt++;
     }
+
+    public static int getQt() {
+        return qt;
+    }
+    
 }
