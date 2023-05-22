@@ -1,19 +1,15 @@
 
 package classeGeral;
 
+import AgentePatologico.AgentePatologico;
 
-public abstract class Virus{
-    protected final String CLASSE_GERAL = "Virus";
-    private static int qt = 0;
 
-    public Virus() {
-    }
+public abstract class Virus extends AgentePatologico{
+    int qt = 0;
     
-    
-    
-    public String getClasse_Geral() {
-        return CLASSE_GERAL;
+    public Virus(String identificacao, int energia_Vital, String classe_Especifica) {
+        super(identificacao, energia_Vital, "Virus", classe_Especifica);
+        qt++;
     }
 
-    
 }

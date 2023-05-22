@@ -1,23 +1,77 @@
 package classeEspecifica;
 
 import classeGeral.Bacteria;
+import java.util.LinkedList;
+import main.GerarIdentificador;
+import main.Paciente;
+import main.lerArquivo;
 
-public class Estreptococos extends Bacteria {
+public abstract class Estreptococos extends Bacteria {
+    String codigo = "2";
+    
+    public Estreptococos(String identificacao) {
+        super(identificacao, 200, "Estreptococos");
+        this.codigo = codigo;
+    }
 
-    final int CODIGO = 2;
-    final int ENERGIA_VITAL = 100;
-    String identificacao;
-    final String CLASSE_ESPECÍFICA = "Estreptococos";
+    public String getCodigo() {
+        return codigo;
+    }
+
+    @Override
+    public String getIdentificacao() {
+        return super.getIdentificacao();
+    }
+    
+    
     
 
-    public Estreptococos(String identificacao) {
-        this.identificacao = identificacao;
-        Estreptococos.qt++;
+    @Override
+    public String getClasse_Especifica() {
+        return super.getClasse_Especifica();
     }
 
-    public static int getQt() {
-        return qt;
+    @Override
+    public String getClasse_Geral() {
+        return super.getClasse_Geral(); 
     }
+
+    @Override
+    public int getEnergia_Vital() {
+        return super.getEnergia_Vital();
+    }
+
+    Paciente paciente = new Paciente();
+
+
+    public void Ataque() {
+        String  identificacao1 = getIdentificacao();
+        
+        LinkedList lista = lerArquivo.lerArquivo1();
+        
+        boolean estreptococosFila;
+        estreptococosFila = lerArquivo.lerEstreptococos();
+
+        int celulasK = paciente.getQntde_K();
+        int hemacias = paciente.getQntde_Hemacias();
+        
+        
+        if (estreptococosFila == true) {
+            String idEstrepNovo = lerArquivo.retornaIdEstrep();
+            
+            lista.add(idEstrepNovo);  //TESTAR
+            
+        }
+
+        paciente.setQntde_Hemacias(hemacias - 10);
+        paciente.setQntde_K(celulasK - 3);
+        
+        String identificacao = GerarIdentificador.gerarIdentificacao("2");
+        
+        lerArquivo.ultimoLista(identificacao1); //joga ele pra ultimo
+
+    }
+
     
     
 }

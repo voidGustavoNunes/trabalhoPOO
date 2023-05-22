@@ -1,11 +1,14 @@
 
 package classeGeral;
 
-public abstract class Bacteria{
-    protected final String CLASSE_GERAL = "Bactéria";
+import AgentePatologico.AgentePatologico;
+
+public abstract class Bacteria extends AgentePatologico{
     private static int qt = 0;
-    
-    public String getClasse_Geral() {
-        return CLASSE_GERAL;
+
+    public Bacteria(String identificacao, int energia_Vital, String classe_Especifica) {
+        super(identificacao, energia_Vital, "Virus", classe_Especifica);
+        qt++;
     }
+    
 }
