@@ -44,8 +44,9 @@ public abstract class Histoplasma extends Fungo {
     }
 
     Paciente paciente = new Paciente();
-
-    public void Ataque() {
+    
+    @Override
+    public void Atacar() {
 
         String identificacao1 = getIdentificacao(); //PEGA A IDENTIFICACAO DO HISTOPLASMA CRIADO
 

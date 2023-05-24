@@ -10,5 +10,17 @@ public abstract class Bacteria extends AgentePatologico{
         super(identificacao, energia_Vital, "Virus", classe_Especifica);
         qt++;
     }
+
+    public Bacteria() {
+        qt++;
+    }
+
+    public static int getQt() {
+        return qt;
+    }
+    
+    @Override
+    public void Atacar(){}
+    
     
 }

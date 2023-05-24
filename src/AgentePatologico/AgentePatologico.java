@@ -46,6 +46,11 @@ public abstract class AgentePatologico {
         this.classe_Geral = classe_Geral;
         this.classe_Especifica = classe_Especifica;
     }
+
+    public AgentePatologico() {
+    }
+    
+    public void Atacar(){}
     
     
     

@@ -45,7 +45,7 @@ public abstract class Escherichia extends Bacteria {
     private void espalhaEscherichia(Escherichia escherichia) { //passa como parametro o objeto escherichia
         Random random = new Random();
 
-        LinkedList lista = lerArquivo.lerArquivo1();
+        LinkedList lista = lerArquivo.lerArquivo1("patologicos.txt");
 
         int indiceAleatorio = random.nextInt((lista.size()) + 1); //pega o tamanho da lista e gera um numero aleatorio
 
@@ -69,8 +69,8 @@ public abstract class Escherichia extends Bacteria {
         espalhaEscherichia(escherichia); //ESPALHA A ESCHERICHIA PELA FILA
 
     }
-
-    public void Ataque() {
+    @Override
+    public void Atacar() {
 
         boolean p = paciente.verificaPaciente();
 

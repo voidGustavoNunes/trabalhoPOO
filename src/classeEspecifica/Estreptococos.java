@@ -22,9 +22,7 @@ public abstract class Estreptococos extends Bacteria {
     public String getIdentificacao() {
         return super.getIdentificacao();
     }
-    
-    
-    
+
 
     @Override
     public String getClasse_Especifica() {
@@ -43,11 +41,11 @@ public abstract class Estreptococos extends Bacteria {
 
     Paciente paciente = new Paciente();
 
-
-    public void Ataque() {
+    @Override
+    public void Atacar() {
         String  identificacao1 = getIdentificacao();
         
-        LinkedList lista = lerArquivo.lerArquivo1();
+        LinkedList lista = lerArquivo.lerArquivo1("patologicos.txt");
         
         boolean estreptococosFila;
         estreptococosFila = lerArquivo.lerEstreptococos();

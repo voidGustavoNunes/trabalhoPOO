@@ -14,12 +14,12 @@ import java.util.ListIterator;
 public class lerArquivo {
     //private Histoplasma histoplasma;
 
-    public static LinkedList lerArquivo1() {
+    public static LinkedList lerArquivo1(String diretorio) {
         String erro = "Não encontrado";
 
         FileInputStream fil = null;
         try {
-            fil = new FileInputStream("patologicos.txt");
+            fil = new FileInputStream(diretorio);
         } catch (FileNotFoundException ex) {
             System.out.println("Não foi possível abrir o arquivo");
         }
@@ -41,7 +41,7 @@ public class lerArquivo {
         String erro = "Não encontrado";
         String identificacao;
 
-        LinkedList arq = lerArquivo1(); //crio uma variavel para ler o metodo lerArquivo1
+        LinkedList arq = lerArquivo1("patologicos.txt"); //crio uma variavel para ler o metodo lerArquivo1
 //        arq = arq.s
         //Iterator it = arq.iterator();
 
@@ -69,7 +69,7 @@ public class lerArquivo {
 
     public static boolean lerEstreptococos() { //ler se há um outro estreptococos na fila
 
-        LinkedList lista = lerArquivo1();
+        LinkedList lista = lerArquivo1("patologicos.txt");
 
         for (int i = 0; i < lista.size(); i++) {
             String elementoAtual = (String) lista.get(i);     // 1 HV1
@@ -91,7 +91,7 @@ public class lerArquivo {
     }
 
     public static String retornaIdEstrep() { //Estreptococos
-        LinkedList lista = lerArquivo1();
+        LinkedList lista = lerArquivo1("patologicos.txt");
 
         for (int i = 0; i < lista.size(); i++) {
             String elementoAtual = (String) lista.get(i);
@@ -116,7 +116,7 @@ public class lerArquivo {
     }
 
     public static void verificar_Fila_Histoplasma() {
-        LinkedList<Object> lista = lerArquivo1(); //e um object pq ele e o pai de todos, se fosse string dava erro nas instancias
+        LinkedList<Object> lista = lerArquivo1("patologicos.txt"); //e um object pq ele e o pai de todos, se fosse string dava erro nas instancias
         // de fungo e bacteria
 
         for (int i = 0; i < lista.size() - 1; i++) {
@@ -132,7 +132,7 @@ public class lerArquivo {
     }
 
     public static void removerDaLista(String identificacao) {
-        LinkedList<String> lista = lerArquivo1();
+        LinkedList<String> lista = lerArquivo1("patologicos.txt");
 
         for (int i = 0; i < lista.size() - 1; i++) {
             if (lista.get(i).equals(identificacao)) {
@@ -143,7 +143,7 @@ public class lerArquivo {
     }
 
     public static void ultimoLista(String identificacao) {
-        LinkedList<String> lista = lerArquivo1();
+        LinkedList<String> lista = lerArquivo1("patologicos.txt");
 
         for (int i = 0; i < lista.size(); i++) { //le a lista toda
             String atual = lista.get(i); //armazena o index atual

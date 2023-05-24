@@ -44,8 +44,9 @@ public abstract class Covid19 extends Virus {
     public String getIdentificacao() {
         return super.getIdentificacao();
     }
-
-    public void Ataque() {
+    
+    @Override
+    public void Atacar() {
 
         boolean p = paciente.verificaPaciente();
         int energia_Vital = getEnergia_Vital();

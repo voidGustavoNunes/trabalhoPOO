@@ -47,8 +47,8 @@ public abstract class HIV extends Virus{
 
     Paciente paciente = new Paciente();
 
-    
-    public void Ataque() {
+    @Override
+    public void Atacar() {
 
         String  identificacao1 = getIdentificacao();
         

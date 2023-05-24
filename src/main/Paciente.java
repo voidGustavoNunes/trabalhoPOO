@@ -1,6 +1,8 @@
 
 package main;
 
+import java.util.LinkedList;
+
 
 public class Paciente {
     String nome;
@@ -59,6 +61,23 @@ public class Paciente {
     public void setQntde_K(int qntde_K) {
         this.qntde_K = qntde_K;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+    
     
     public boolean verificaPaciente(){
         int k = getQntde_K();
@@ -85,6 +104,28 @@ public class Paciente {
         
         return ataque;   
     }
-
+        
+    public void setaDadosPaciente(){
+        LinkedList listaPaciente = lerArquivo.lerArquivo1("paciente.txt");
+    
+        String nome = (String) listaPaciente.get(0);
+        String peso = (String) listaPaciente.get(1);
+        String altura = (String) listaPaciente.get(2);
+        String idade = (String) listaPaciente.get(3);
+        String leucocitos = (String) listaPaciente.get(4);
+        String hemacias = (String) listaPaciente.get(5);
+        String celulasT = (String) listaPaciente.get(6);
+        String celulasK = (String) listaPaciente.get(7);
+        
+        setNome(nome);
+        setPeso(Double.parseDouble(peso));
+        setAltura(Double.parseDouble(altura));
+        setIdade(Integer.parseInt(idade));
+        setQntde_Leucocitos(Integer.parseInt(leucocitos));
+        setQntde_Hemacias(Integer.parseInt(hemacias));
+        setQntde_CelulasT(Integer.parseInt(celulasT));
+        setQntde_K(Integer.parseInt(celulasK));
+        
+    }
 
 }

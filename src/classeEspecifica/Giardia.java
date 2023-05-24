@@ -45,8 +45,9 @@ public abstract class Giardia extends Protozoario {
     }
 
     Paciente paciente = new Paciente();
-
-    public void Ataque() {
+    
+    @Override
+    public void Atacar() {
         
         String  identificacao1 = getIdentificacao();
 
