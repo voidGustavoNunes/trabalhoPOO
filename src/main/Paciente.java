@@ -1,18 +1,21 @@
 
 package main;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 
 public class Paciente {
-    String nome;
-    double peso;
-    double altura;
-    int idade;
-    int qntde_Leucocitos;
-    int qntde_Hemacias;
-    int qntde_CelulasT;
-    int qntde_K;
+    private String nome;
+    private double peso;
+    private double altura;
+    private int idade;
+    private int qntde_Leucocitos;
+    private int qntde_Hemacias;
+    private int qntde_CelulasT;
+    private int qntde_K;
 
     public String getNome() {
         return nome;
@@ -106,8 +109,24 @@ public class Paciente {
     }
         
     public void setaDadosPaciente(){
-        LinkedList listaPaciente = lerArquivo.lerArquivo1("paciente.txt");
-    
+        
+        String erro = "Arquivo paciente.txt não encontrado";
+
+        FileInputStream fil = null;
+        try {
+            fil = new FileInputStream("paciente.txt");
+        } catch (FileNotFoundException ex) {
+            System.out.println(erro);
+        }
+        Scanner scan = new Scanner(fil); //scaneia o arquivo atribuindo a variavel scan
+        LinkedList listaPaciente = new LinkedList(); //cria a lista
+
+        while (scan.hasNextLine()) { //enquanto tiver dado a ser lido no arquivo
+            String linha = scan.nextLine(); //scaneia a posição e atribui a variável linha
+            listaPaciente.add(linha); // adiciona a linha à lista
+        }
+        scan.close();
+
         String nome = (String) listaPaciente.get(0);
         String peso = (String) listaPaciente.get(1);
         String altura = (String) listaPaciente.get(2);
@@ -126,6 +145,21 @@ public class Paciente {
         setQntde_CelulasT(Integer.parseInt(celulasT));
         setQntde_K(Integer.parseInt(celulasK));
         
+    }
+    
+    public LinkedList criaListaPaciente(){
+        LinkedList lista = new LinkedList();
+        
+        lista.add(getPeso()); //indice 0
+        lista.add(getAltura()); //indice 1
+        lista.add(getIdade()); //indice 2
+        lista.add(getQntde_Leucocitos()); //indice 3
+        lista.add(getQntde_Hemacias()); //indice 4
+        lista.add(getQntde_CelulasT()); //indice 5
+        lista.add(getQntde_K()); //indice 6
+         
+        return lista;
+    
     }
 
 }

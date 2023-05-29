@@ -1,6 +1,8 @@
 
 package AgentePatologico;
 
+import java.util.LinkedList;
+
 
 public abstract class AgentePatologico {
     private String identificacao;
@@ -51,6 +53,9 @@ public abstract class AgentePatologico {
     }
     
     public void Atacar(){}
+    
+    public void Atacar(LinkedList<String> lista){}
+
     
     
     

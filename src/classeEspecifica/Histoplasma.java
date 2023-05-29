@@ -1,23 +1,29 @@
 package classeEspecifica;
 
+import classeGeral.Bacteria;
 import classeGeral.Fungo;
+import java.util.LinkedList;
 import main.Paciente;
-import main.lerArquivo;
 
 public abstract class Histoplasma extends Fungo {
 
     String codigo = "5";
-    
+    Bacteria bacteria;
+
     public Histoplasma(String identificacao) {
         super(identificacao, 1000, "Histoplasma");
         this.codigo = codigo;
     }
 
+    public Histoplasma() {
+        this.codigo = codigo;
+    }
+
+    
     public String getCodigo() {
         return codigo;
     }
-    
-    
+
     @Override
     public String getClasse_Especifica() {
         return super.getClasse_Especifica();
@@ -44,32 +50,51 @@ public abstract class Histoplasma extends Fungo {
     }
 
     Paciente paciente = new Paciente();
-    
+
+    public static void verificar_Fila_Histoplasma(LinkedList<String> listaPatologicos) {
+
+        int tamanhoLista = listaPatologicos.size();
+
+        for (int i = 0; i < listaPatologicos.size() - 1; i++) {
+            String identificador = listaPatologicos.get(i);
+            String proximoIdentificador = "";
+            String anteriorIdentificador = "";
+            System.out.println(i - 1 < listaPatologicos.size() - 1);
+            System.out.println(i - 1 >= 0);
+            if ((i - 1) >= 0 && (i - 1) < listaPatologicos.size()) {
+                anteriorIdentificador = listaPatologicos.get(i - 1);
+            }
+            if (listaPatologicos.size() - 1 >= i + 1) {
+                proximoIdentificador = listaPatologicos.get(i + 1);
+            }
+
+            String[] texto = identificador.split(" ");
+            String[] proximoTexto = proximoIdentificador.split(" ");
+            String[] anteriorTexto = anteriorIdentificador.split(" ");
+
+            if (anteriorTexto[0].equals("2") || anteriorTexto[0].equals("6")) {
+                if (texto[0].equals("5")) {
+                    listaPatologicos.remove(i - 1);
+                }
+            }
+
+            
+            if (proximoTexto[0].equals("2") || proximoTexto[0].equals("6")) {
+                if (texto[0].equals("5")) {
+                    if (tamanhoLista == listaPatologicos.size()) {
+                        listaPatologicos.remove(i + 1);
+                    } else {
+                        listaPatologicos.remove(i);
+                        i--;
+                }
+            }
+                
+            }
+        }
+    }
+
     @Override
-    public void Atacar() {
-
-        String identificacao1 = getIdentificacao(); //PEGA A IDENTIFICACAO DO HISTOPLASMA CRIADO
-
-        int hemacias = paciente.getQntde_Hemacias();
-        int energiaH = getEnergia_Vital();
-
-        boolean p = paciente.verificaPaciente();
-
-        if (energiaH == 0) { //SE O HISTOPLASMA MORREU
-            lerArquivo.removerDaLista(identificacao1);
-        }
-
-        if (p == false) { //se paciente nao morreu
-            paciente.setQntde_Hemacias(hemacias - 50);
-
-            lerArquivo.verificar_Fila_Histoplasma();//validacao fila
-
-            double contraataque = paciente.ContraAtaque();
-            setEnergia_Vital(energiaH - (int) contraataque);
-
-            lerArquivo.ultimoLista(identificacao1); //joga ele pra ultimo
-
-        }
+    public void Atacar(){
 
     }
 

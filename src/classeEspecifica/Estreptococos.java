@@ -1,14 +1,15 @@
 package classeEspecifica;
 
+import AgentePatologico.AgentePatologico;
 import classeGeral.Bacteria;
 import java.util.LinkedList;
-import main.GerarIdentificador;
 import main.Paciente;
-import main.lerArquivo;
+
 
 public abstract class Estreptococos extends Bacteria {
+
     String codigo = "2";
-    
+
     public Estreptococos(String identificacao) {
         super(identificacao, 200, "Estreptococos");
         this.codigo = codigo;
@@ -23,7 +24,6 @@ public abstract class Estreptococos extends Bacteria {
         return super.getIdentificacao();
     }
 
-
     @Override
     public String getClasse_Especifica() {
         return super.getClasse_Especifica();
@@ -31,7 +31,7 @@ public abstract class Estreptococos extends Bacteria {
 
     @Override
     public String getClasse_Geral() {
-        return super.getClasse_Geral(); 
+        return super.getClasse_Geral();
     }
 
     @Override
@@ -39,37 +39,68 @@ public abstract class Estreptococos extends Bacteria {
         return super.getEnergia_Vital();
     }
 
+    @Override
+    public void setEnergia_Vital(int energia_Vital) {
+        super.setEnergia_Vital(energia_Vital); 
+    }
+
+    public Estreptococos() {
+        this.codigo = codigo;
+    }
+    
+    
+
     Paciente paciente = new Paciente();
 
-    @Override
-    public void Atacar() {
-        String  identificacao1 = getIdentificacao();
-        
-        LinkedList lista = lerArquivo.lerArquivo1("patologicos.txt");
-        
-        boolean estreptococosFila;
-        estreptococosFila = lerArquivo.lerEstreptococos();
 
-        int celulasK = paciente.getQntde_K();
-        int hemacias = paciente.getQntde_Hemacias();
-        
-        
-        if (estreptococosFila == true) {
-            String idEstrepNovo = lerArquivo.retornaIdEstrep();
-            
-            lista.add(idEstrepNovo);  //TESTAR
-            
+    public boolean lerEstreptococos(LinkedList<String> listaPatologicos) { //ler se há um outro estreptococos na fila
+
+        for (int i = 0; i < listaPatologicos.size() -1; i++) {
+            String elementoAtual = (String) listaPatologicos.get(i);     // 1 HV1
+            String proximoElemento = "";
+            if(listaPatologicos.size()-1 >= i+1) {
+                proximoElemento = (String) listaPatologicos.get(i + 1);     //2 EST
+            }
+
+            String texto[] = elementoAtual.split(" ");
+            String textoProximo[] = proximoElemento.split(" ");
+
+            String id = texto[0];
+            String idProximo = textoProximo[0];
+
+            if (id.equals(idProximo) && idProximo.equals("2")) {
+                return true;
+            }
         }
-
-        paciente.setQntde_Hemacias(hemacias - 10);
-        paciente.setQntde_K(celulasK - 3);
-        
-        String identificacao = GerarIdentificador.gerarIdentificacao("2");
-        
-        lerArquivo.ultimoLista(identificacao1); //joga ele pra ultimo
+        return false;
 
     }
 
-    
-    
+    public static String retornaIdEstrep(LinkedList<String> listaPatologicos) { //Estreptococos
+
+        for (int i = 0; i < listaPatologicos.size() -1; i++) {
+            String elementoAtual = (String) listaPatologicos.get(i);
+            String proximoElemento = (String) listaPatologicos.get(i + 1);
+
+            String texto[] = elementoAtual.split(" ");
+            String textoProximo[] = proximoElemento.split(" ");
+
+            String id = texto[0];
+            String nome = texto[1];
+
+            String idProximo = textoProximo[0];
+
+            if (id.equals(idProximo) && id.equals("2")) {
+                String identificacao = id + " " + texto[1].replace("\n", "") + textoProximo[1].replace("\n", "") + "\n";
+
+                return identificacao;
+            }
+        }
+        return null;
+
+    }
+
+    @Override
+    public void Atacar(){}
+
 }
