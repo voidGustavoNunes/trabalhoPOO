@@ -2,8 +2,11 @@
 package classeGeral;
 
 import AgentePatologico.AgentePatologico;
+<<<<<<< HEAD
 import java.util.LinkedList;
 import main.Paciente;
+=======
+>>>>>>> 6710c81fa9059dabe56ad02f551ff791533c0bb9
 
 
 public abstract class Virus extends AgentePatologico{
@@ -17,12 +20,22 @@ public abstract class Virus extends AgentePatologico{
     public Virus() {
         qt++;
     }
+<<<<<<< HEAD
+=======
+    
+    
+>>>>>>> 6710c81fa9059dabe56ad02f551ff791533c0bb9
 
     public static int getQt() {
         return qt;
     }
+<<<<<<< HEAD
     
     @Override
     public void Atacar(LinkedList<AgentePatologico> listaPatologicos, Paciente patiente){};
+=======
+    @Override
+    public void Atacar(){}
+>>>>>>> 6710c81fa9059dabe56ad02f551ff791533c0bb9
 
 }

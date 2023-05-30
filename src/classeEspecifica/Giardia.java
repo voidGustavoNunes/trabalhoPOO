@@ -1,11 +1,17 @@
 package classeEspecifica;
 
+<<<<<<< HEAD
 import AgentePatologico.AgentePatologico;
 import classeGeral.Protozoario;
 import java.util.LinkedList;
 import main.Paciente;
 
 public class Giardia extends Protozoario {
+=======
+import classeGeral.Protozoario;
+
+public abstract class Giardia extends Protozoario {
+>>>>>>> 6710c81fa9059dabe56ad02f551ff791533c0bb9
 
     String codigo = "3";
 
@@ -43,6 +49,7 @@ public class Giardia extends Protozoario {
         super.setEnergia_Vital(energia_Vital);
     }
 
+<<<<<<< HEAD
     @Override
     public void Atacar(LinkedList<AgentePatologico> listaPatologicos, Paciente paciente) {
         final int RECUPERA = 50;
@@ -83,4 +90,12 @@ public class Giardia extends Protozoario {
     
     
 
+=======
+
+    @Override
+    public void Atacar() {
+
+    }
+
+>>>>>>> 6710c81fa9059dabe56ad02f551ff791533c0bb9
 }

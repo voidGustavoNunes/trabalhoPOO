@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 2 asfaas
 3 asfafs
 4 asfaf
 5 asfa
 6 asfgaf
+=======
+3 fhuguwh
+3 ewgwegw
+>>>>>>> 6710c81fa9059dabe56ad02f551ff791533c0bb9

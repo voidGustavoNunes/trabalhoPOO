@@ -2,7 +2,10 @@
 package AgentePatologico;
 
 import java.util.LinkedList;
+<<<<<<< HEAD
 import main.Paciente;
+=======
+>>>>>>> 6710c81fa9059dabe56ad02f551ff791533c0bb9
 
 
 public abstract class AgentePatologico {
@@ -53,11 +56,18 @@ public abstract class AgentePatologico {
     public AgentePatologico() {
     }
     
+<<<<<<< HEAD
     public void Atacar(){};
     
     public void Atacar(LinkedList<AgentePatologico> lista, Paciente paciente){};
     
     public abstract void remover(LinkedList<AgentePatologico> listaPatologicos);
+=======
+    public void Atacar(){}
+    
+    public void Atacar(LinkedList<String> lista){}
+
+>>>>>>> 6710c81fa9059dabe56ad02f551ff791533c0bb9
     
     
     

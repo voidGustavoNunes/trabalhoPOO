@@ -1,9 +1,14 @@
 package classeEspecifica;
 
+<<<<<<< HEAD
 import AgentePatologico.AgentePatologico;
 import classeGeral.Virus;
 import java.util.LinkedList;
 import main.Paciente;
+=======
+import classeGeral.Virus;
+
+>>>>>>> 6710c81fa9059dabe56ad02f551ff791533c0bb9
 
 public abstract class HIV extends Virus {
 
@@ -44,6 +49,7 @@ public abstract class HIV extends Virus {
     }
 
     @Override
+<<<<<<< HEAD
     public void Atacar(LinkedList<AgentePatologico> listaPatologicos, Paciente paciente) {
         int leucocitos = paciente.getQntde_Leucocitos();
         int celulasK = paciente.getQntde_K();
@@ -69,4 +75,12 @@ public abstract class HIV extends Virus {
     
     
     
+=======
+    public void Atacar() {
+
+
+
+    }
+
+>>>>>>> 6710c81fa9059dabe56ad02f551ff791533c0bb9
 }

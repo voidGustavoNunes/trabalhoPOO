@@ -1,12 +1,20 @@
 package classeEspecifica;
 
+<<<<<<< HEAD
 import AgentePatologico.AgentePatologico;
+=======
+>>>>>>> 6710c81fa9059dabe56ad02f551ff791533c0bb9
 import classeGeral.Virus;
 import java.util.LinkedList;
 import main.*;
 
+<<<<<<< HEAD
 public class Covid19 extends Virus {
 
+=======
+public abstract class Covid19 extends Virus {
+    
+>>>>>>> 6710c81fa9059dabe56ad02f551ff791533c0bb9
     String codigo = "4";
 
     public Covid19(String identificacao) {
@@ -44,6 +52,7 @@ public class Covid19 extends Virus {
     }
 
     @Override
+<<<<<<< HEAD
     public void Atacar(LinkedList<AgentePatologico> listaPatologicos, Paciente paciente) {
         int energia_Vital = getEnergia_Vital();
 
@@ -89,5 +98,10 @@ public class Covid19 extends Virus {
             listaPatologicos.remove(this);
         
         }
+=======
+    public void Atacar() {
+
+    }
+>>>>>>> 6710c81fa9059dabe56ad02f551ff791533c0bb9
 
 }
