@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import main.Paciente;
 
 public abstract class Bacteria extends AgentePatologico{
-    private static int qt = -2;
+    private static int qt = 0;
 
     public Bacteria(String identificacao, int energia_Vital, String classe_Especifica) {
         super(identificacao, energia_Vital, "Virus", classe_Especifica);

@@ -80,12 +80,6 @@ public class Covid19 extends Virus {
 
             }
         }
-        if (paciente.getQntde_Hemacias() <= 0 || paciente.getQntde_CelulasT() <= 0 || paciente.getQntde_Hemacias() <= 0) {
-            System.out.println("=========================================================");
-            System.out.println("Quem está atacando é o Covid19, tenho " + getEnergia_Vital() + "de energia vital e o paciente irá morrer ao meu ataque");
-            System.out.println("=========================================================\n\n");
-
-        }
 
     }
     

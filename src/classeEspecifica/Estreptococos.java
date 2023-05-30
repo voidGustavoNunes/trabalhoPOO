@@ -115,13 +115,6 @@ public class Estreptococos extends Bacteria {
             setEnergia_Vital(0);
 
         }
-
-        if (paciente.getQntde_K() <= 0 || paciente.getQntde_Hemacias() <= 0) {
-            System.out.println("=========================================================");
-            System.out.println("Quem está atacando é o Estreptococos, tenho " + getEnergia_Vital() + "de energia vital e o paciente irá morrer ao meu ataque");
-            System.out.println("=========================================================\n\n");
-
-        }
     }
 
     @Override

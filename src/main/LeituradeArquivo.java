@@ -82,10 +82,6 @@ public class LeituradeArquivo {
 
             } else if (codigo.equals("6")) {
                 AgentePatologico agente = new Escherichia(linha) {
-                    @Override
-                    public void remover(LinkedList<AgentePatologico> listaPatologicos) {
-                        
-                    }
                 };
                 agentePatologico.add(agente);
             }

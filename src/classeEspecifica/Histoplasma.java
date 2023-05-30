@@ -92,13 +92,6 @@ public class Histoplasma extends Fungo {
             setEnergia_Vital(0);
         }
 
-        if (paciente.getQntde_Hemacias() <= 0) {
-            System.out.println("=========================================================");
-            System.out.println("Quem está atacando é o Histoplasma, tenho " + getEnergia_Vital() + "de energia vital e o paciente irá morrer ao meu ataque");
-            System.out.println("=========================================================\n\n");
-
-        }
-
     }
 
     @Override

@@ -26,11 +26,12 @@ public class Ataque {
 
         while (!agentesPatologicos.isEmpty() && !paciente.verificaPaciente()) {
             dias++;
-
+            
             for (AgentePatologico agente : copiaAgentes) {
                 agente.Atacar(agentesPatologicos, paciente);
 
                 if (agente.getEnergia_Vital() <= 0 && !agente.getClasse_Especifica().equals("HIV")) {
+                    agente.remover(agentesPatologicos);
                     agentesPatologicos.remove(agente);
                 }
 
@@ -40,7 +41,9 @@ public class Ataque {
                     exibirResultadoMorte();
                     return;
                 }
+                
             }
+            copiaAgentes = agentesPatologicos;
         }
 
         exibirResultadoVida();
