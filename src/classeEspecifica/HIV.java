@@ -58,12 +58,13 @@ public abstract class HIV extends Virus {
         double contrataque = paciente.ContraAtaque();
         this.setEnergia_Vital(getEnergia_Vital() - (int) contrataque);
 
-        if (getEnergia_Vital() < 0) {
-            setEnergia_Vital(0);
+        if (this.getEnergia_Vital() < 0) {
+            this.setEnergia_Vital(0);
 
         }
     }
 
+    //o HIV NAO MORRE
     @Override
     public abstract void remover(LinkedList<AgentePatologico> listaPatologicos);
     

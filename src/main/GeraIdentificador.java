@@ -4,7 +4,7 @@ package main;
 import java.util.Random;
 
 
-public class GerarIdentificador {
+public class GeraIdentificador {
     
         public String gerarIdentificacao(String numero){ //funcao para gerar um identificador para o agente criado
         Random random = new Random();

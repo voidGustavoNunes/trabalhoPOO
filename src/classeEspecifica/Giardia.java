@@ -73,13 +73,6 @@ public class Giardia extends Protozoario {
             this.setEnergia_Vital(this.getEnergia_Vital() + RECUPERA);
         }
 
-        if (paciente.getQntde_K() <= 0 || paciente.getQntde_CelulasT() <= 0) {
-            System.out.println("=========================================================");
-            System.out.println("Quem está atacando é a Giardia, tenho " + getEnergia_Vital() + "de energia vital e o paciente irá morrer ao meu ataque");
-            System.out.println("=========================================================\n\n");
-
-        }
-
     }
 
     @Override

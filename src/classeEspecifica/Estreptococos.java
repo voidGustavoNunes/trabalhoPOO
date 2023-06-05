@@ -24,11 +24,6 @@ public class Estreptococos extends Bacteria {
     }
 
     @Override
-    public String getClasse_Especifica() {
-        return super.getClasse_Especifica();
-    }
-
-    @Override
     public String getClasse_Geral() {
         return super.getClasse_Geral();
     }
@@ -43,11 +38,7 @@ public class Estreptococos extends Bacteria {
         super.setEnergia_Vital(energia_Vital);
     }
 
-    public Estreptococos() {
-        this.codigo = codigo;
-    }
-
-    public boolean lerEstreptococos(LinkedList<AgentePatologico> listaPatologicos) { //ler se há um outro estreptococos na fila
+    public boolean lerEstreptococos(LinkedList<AgentePatologico> listaPatologicos) { //ler se há um outro estreptococos proximo na fila
 
         for (int i = 0; i < listaPatologicos.size() - 1; i++) {
             AgentePatologico elementoAtual = listaPatologicos.get(i);     // 1 HV1
@@ -109,17 +100,10 @@ public class Estreptococos extends Bacteria {
 
         //CONTRA ATAQUE DO PACIENTE
         double contraAtaque = paciente.ContraAtaque();
-        setEnergia_Vital(getEnergia_Vital() - (int) contraAtaque);
+        this.setEnergia_Vital(getEnergia_Vital() - (int) contraAtaque);
 
         if (getEnergia_Vital() < 0) {
-            setEnergia_Vital(0);
-
-        }
-
-        if (paciente.getQntde_K() <= 0 || paciente.getQntde_Hemacias() <= 0) {
-            System.out.println("=========================================================");
-            System.out.println("Quem está atacando é o Estreptococos, tenho " + getEnergia_Vital() + "de energia vital e o paciente irá morrer ao meu ataque");
-            System.out.println("=========================================================\n\n");
+            this.setEnergia_Vital(0);
 
         }
     }

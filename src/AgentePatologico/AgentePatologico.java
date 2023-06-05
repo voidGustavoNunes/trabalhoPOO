@@ -31,17 +31,10 @@ public abstract class AgentePatologico {
         return classe_Geral;
     }
 
-    public void setClasse_Geral(String classe_Geral) {
-        this.classe_Geral = classe_Geral;
-    }
-
     public String getClasse_Especifica() {
         return classe_Especifica;
     }
 
-    public void setClasse_Especifica(String classe_Especifica) {
-        this.classe_Especifica = classe_Especifica;
-    }
 
     public AgentePatologico(String identificacao, int energia_Vital, String classe_Geral, String classe_Especifica) {
         this.identificacao = identificacao;
@@ -53,13 +46,9 @@ public abstract class AgentePatologico {
     public AgentePatologico() {
     }
     
-    public void Atacar(){};
-    
     public void Atacar(LinkedList<AgentePatologico> lista, Paciente paciente){};
     
     public abstract void remover(LinkedList<AgentePatologico> listaPatologicos);
-    
-    
-    
+  
     
 }

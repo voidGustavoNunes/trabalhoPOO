@@ -1,15 +1,7 @@
 package main;
 
-import AgentePatologico.AgentePatologico;
-import classeEspecifica.Covid19;
-import classeEspecifica.Escherichia;
-import classeEspecifica.Estreptococos;
-import classeEspecifica.Giardia;
-import classeEspecifica.HIV;
-import classeEspecifica.Histoplasma;
+
 import classeGeral.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Main {
@@ -29,12 +21,12 @@ public class Main {
         }
 
         if (classesMaisFrequentes.size() > 1) {
-            System.out.println("As classes que mais aparecem -" + maxFrequencia + " - indivíduos são:");
+            System.out.println("As classes que mais aparecem -" + maxFrequencia + " - individuos sao:");
             for (String classe : classesMaisFrequentes) {
                 System.out.println(classe);
             }
         } else {
-            System.out.println("A classe que mais aparece -" + maxFrequencia + " - indivíduos é: " + classesMaisFrequentes.get(0));
+            System.out.println("A classe que mais aparece -" + maxFrequencia + " - individuos e: " + classesMaisFrequentes.get(0));
         }
     }
 
