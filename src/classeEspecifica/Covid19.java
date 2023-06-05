@@ -45,7 +45,6 @@ public class Covid19 extends Virus {
 
     @Override
     public void Atacar(LinkedList<AgentePatologico> listaPatologicos, Paciente paciente) {
-        int energia_Vital = getEnergia_Vital();
 
         int celulasT = paciente.getQntde_CelulasT();
         int hemacias = paciente.getQntde_Hemacias();
@@ -58,14 +57,14 @@ public class Covid19 extends Virus {
 
         //CONTRA ATAQUE PACIENTE
         double contraAtaque = paciente.ContraAtaque();
-        setEnergia_Vital((energia_Vital - (int) contraAtaque));
+        setEnergia_Vital((this.getEnergia_Vital() - (int) contraAtaque));
 
         if (getEnergia_Vital() < 0) {
             setEnergia_Vital(0);
 
         }
 
-        //SEGUNDO ATAQUE
+        //SEGUNDO ATAQUE NAO RECURSIVO
         if (hemacias < 200) {
             paciente.setQntde_Leucocitos(leucocitos - 10);
             paciente.setQntde_CelulasT(celulasT - 2);
@@ -73,18 +72,12 @@ public class Covid19 extends Virus {
 
             //SEGUNDO CONTRA ATAQUE
             double contraAtaque2 = paciente.ContraAtaque();
-            setEnergia_Vital((this.getEnergia_Vital() - (int) contraAtaque2));
+            this.setEnergia_Vital((this.getEnergia_Vital() - (int) contraAtaque2));
 
             if (getEnergia_Vital() < 0) {
-                setEnergia_Vital(0);
+                this.setEnergia_Vital(0);
 
             }
-        }
-        if (paciente.getQntde_Hemacias() <= 0 || paciente.getQntde_CelulasT() <= 0 || paciente.getQntde_Hemacias() <= 0) {
-            System.out.println("=========================================================");
-            System.out.println("Quem está atacando é o Covid19, tenho " + getEnergia_Vital() + "de energia vital e o paciente irá morrer ao meu ataque");
-            System.out.println("=========================================================\n\n");
-
         }
 
     }

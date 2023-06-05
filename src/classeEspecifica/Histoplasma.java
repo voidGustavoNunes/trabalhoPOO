@@ -16,9 +16,6 @@ public class Histoplasma extends Fungo {
         this.codigo = codigo;
     }
 
-    public Histoplasma() {
-        this.codigo = codigo;
-    }
 
     public String getCodigo() {
         return codigo;
@@ -49,23 +46,25 @@ public class Histoplasma extends Fungo {
         return super.getIdentificacao();
     }
 
-    protected void verificar_Fila_Histoplasma(LinkedList<AgentePatologico> listaPatologicos) {
-
+    protected void verificar_Fila_Histoplasma(LinkedList<AgentePatologico> listaPatologicos) { //verifica na lista se há 
+                                                                                                // uma bacteria proxima do histoplasma
         int tamanhoLista = listaPatologicos.size();
 
         int agenteId = listaPatologicos.indexOf(this);
 
-        if (listaPatologicos.get(agenteId - 1) instanceof Bacteria) {
-            listaPatologicos.get(agenteId -1 ).setEnergia_Vital(0);
+        if (agenteId - 1 >= 1 && listaPatologicos.get(agenteId - 1) instanceof Bacteria) {
+            listaPatologicos.get(agenteId - 1).setEnergia_Vital(0);
             listaPatologicos.get(agenteId - 1).remover(listaPatologicos);
-        }
 
+        } else if ((agenteId == 0) && listaPatologicos.get(tamanhoLista-1) instanceof Bacteria) {
+            listaPatologicos.get(tamanhoLista-1).setEnergia_Vital(0);
+        }
         if (listaPatologicos.get(agenteId + 1) instanceof Bacteria) {
             if (tamanhoLista == listaPatologicos.size()) {
-                listaPatologicos.get(agenteId +1 ).setEnergia_Vital(0);
+                listaPatologicos.get(agenteId + 1).setEnergia_Vital(0);
                 listaPatologicos.get(agenteId + 1).remover(listaPatologicos);
             } else {
-                listaPatologicos.get(agenteId ).setEnergia_Vital(0);
+                listaPatologicos.get(agenteId).setEnergia_Vital(0);
                 listaPatologicos.get(agenteId).remover(listaPatologicos);
                 agenteId--;
             }
@@ -89,24 +88,16 @@ public class Histoplasma extends Fungo {
         this.setEnergia_Vital(energiaH - (int) contraataque);
 
         if (energiaH < 0) {
-            setEnergia_Vital(0);
-        }
-
-        if (paciente.getQntde_Hemacias() <= 0) {
-            System.out.println("=========================================================");
-            System.out.println("Quem está atacando é o Histoplasma, tenho " + getEnergia_Vital() + "de energia vital e o paciente irá morrer ao meu ataque");
-            System.out.println("=========================================================\n\n");
-
+            this.setEnergia_Vital(0);
         }
 
     }
 
     @Override
-    public void remover(LinkedList<AgentePatologico> listaPatologicos){
+    public void remover(LinkedList<AgentePatologico> listaPatologicos) {
         listaPatologicos.remove(this);
 
-    };
-    
-    
+    }
+;
 
 }

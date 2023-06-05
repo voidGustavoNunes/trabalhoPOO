@@ -3,7 +3,7 @@ package classeEspecifica;
 import AgentePatologico.AgentePatologico;
 import classeGeral.Bacteria;
 import java.util.LinkedList;
-import main.GerarIdentificador;
+import main.GeraIdentificador;
 import main.Paciente;
 
 public class Escherichia extends Bacteria {
@@ -24,9 +24,6 @@ public class Escherichia extends Bacteria {
         this.filho = filho;
     }
 
-    public Escherichia() {
-        this.codigo = codigo;
-    }
 
     public String getCodigo() {
         return codigo;
@@ -54,19 +51,15 @@ public class Escherichia extends Bacteria {
 
     private void adicionarStringAleatoria(LinkedList<AgentePatologico> lista, String novaString) {
         // Gerar um número aleatório para a posição
-        int posicaoAleatoria = (int) (Math.random() * (lista.size() + 1));
+        int posicaoAleatoria = (int) (Math.random() * (lista.size() - 1));
 
-        if (posicaoAleatoria > lista.size()) {
-            // Se for maior, definir o índice como o tamanho da lista
-            posicaoAleatoria = lista.size();
-        }
         // Inserir a nova string na posição aleatória
         Escherichia escherichia = new Escherichia(novaString, true);
         lista.add(posicaoAleatoria, escherichia);
     }
 
     public void espalhaEscherichia(LinkedList<AgentePatologico> lista) { //passa como parametro o objeto escherichia
-        GerarIdentificador gerar = new GerarIdentificador();
+        GeraIdentificador gerar = new GeraIdentificador();
 
         String identificadorPrimeiraEscherichia = gerar.gerarIdentificacao(codigo);
         String identificadorSegundaEscherichia = gerar.gerarIdentificacao(codigo);
@@ -78,18 +71,12 @@ public class Escherichia extends Bacteria {
 
     @Override
     public void Atacar(LinkedList<AgentePatologico> listaPatologicos, Paciente paciente) {
-        int energiaVitalAntesAtaque = this.getEnergia_Vital();
-
-        boolean p = paciente.verificaPaciente();
 
         int celulasT = paciente.getQntde_CelulasT();
         int hemacias = paciente.getQntde_Hemacias();
         int leucocitos = paciente.getQntde_Leucocitos();
         int celulasK = paciente.getQntde_K();
 
-        int energiaVital = getEnergia_Vital();
-
-        String identificacao1 = getIdentificacao();
 
         paciente.setQntde_CelulasT(celulasT - 1);
         paciente.setQntde_Leucocitos(leucocitos - 1);
@@ -98,7 +85,7 @@ public class Escherichia extends Bacteria {
 
         double contraAtaque = paciente.ContraAtaque();
 
-        setEnergia_Vital(this.getEnergia_Vital() - (int) contraAtaque);
+        this.setEnergia_Vital(this.getEnergia_Vital() - (int) contraAtaque);
 
         if (this.getEnergia_Vital() < 0) {
             this.setEnergia_Vital(0) ;
@@ -109,7 +96,7 @@ public class Escherichia extends Bacteria {
 
     @Override
     public void remover(LinkedList<AgentePatologico> listaPatologicos) {
-        if (filho == false) {
+        if (filho == false) { //se for a escherichia original
             this.espalhaEscherichia(listaPatologicos);
         }
         else{

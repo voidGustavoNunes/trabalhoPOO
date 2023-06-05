@@ -102,8 +102,9 @@ public class Paciente {
         double peso = getPeso();
         double altura = getAltura();
         int idade = getIdade();
+
+        double ataque = leucocitos/ (peso * altura * idade);
         
-        double ataque = (((double) leucocitos)/ peso * altura * (double) idade);
         
         return ataque;   
     }

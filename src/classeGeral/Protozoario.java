@@ -17,8 +17,7 @@ public abstract class Protozoario extends AgentePatologico{
     public Protozoario() {
         qt++;
     }
-    
-    
+     
 
     public static int getQt() {
         return qt;
